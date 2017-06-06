@@ -1,0 +1,19 @@
+{
+  "name": "mywebsite",
+  "version": "1.0.0",
+  "description": "my personal website. this is a simple SPA which showcases my different skills and projects that i'll be working on.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.3",
+    "mongoose": "^4.9.9"
+  },
+  "devDependencies": {
+    "ejs": "^2.5.6"
+  }
+}

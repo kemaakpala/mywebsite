@@ -1,0 +1,144 @@
+
+<div class="row" id="contact">
+  <div class="col-sm-12">
+    <div class="row">
+
+      <div class="col-sm-12">
+        <h2 class="h2 text-color white">Contact</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <p class="text-color white"> Drop us a line, I'd love to hear from you!</p>
+        <ul class="list-unstyled contact-list">
+          <li>
+            <h2 class="h2 text-color white">Office</h2>
+            <p class="text-color white">
+              I love to work from home and hold meeetings on skype, or at ofee shop. I prefer cofee shops. 
+              Here's a nice one close to where I leave.
+            </p>
+            <!--<google-map></google-map>-->
+            <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+          </li>
+          <li>
+            <h2 class="h2 text-color white">Where Else?</h2>
+            <p class="text-color white">
+              Did I hear you ask where else you can find me, that's easy please find below a list of placesw you can find me online.
+            </p>
+            <ul class="list-unstyled  contact-list">
+              <li>
+                <a class="" href="https://uk.linkedin.com/in/patrick-akpala-9b38a940" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Linkedin">
+                  <i class="fa fa-linkedin  fa-lg"></i> Linkedin
+                </a>
+              </li>
+              <li>
+                <a class="" href="https://twitter.com/akpalapatrick" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter">
+                  <i class="fa fa-twitter  fa-lg"> </i> Twitter
+                </a>
+              </li>
+              <li>
+                <a class="" href="https://github.com/kemaakpala" target="_blank" data-toggle="tooltip" data-placement="bottom" title="github">
+                  <i class="fa fa-github  fa-lg"></i> Github
+                </a>
+              </li>
+              <li>
+                <a class="" href="https://www.freecodecamp.com/kemaakpala" target="_blank"  data-toggle="tooltip" data-placement="bottom" title="Free Code Camp">
+                  <i class="fa fa-free-code-camp  fa-lg"></i> Free code camp
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-8">
+        <div class="row">
+          <div class="col-sm-12">
+          <div class="row">
+            <div id="successbox" class="col-sm-12" ng-class="{'alert' : success, 'alert-success' : success}" ng-hide="success && contactForm.$valid"> {{successMsg}} </div>
+
+            <div id="successbox" class="col-sm-12" ng-class="{'alert' : !success, 'alert-danger' : !success}" ng-show="!success && contactForm.$invalid && submitted"> {{errorMsg}} </div>
+
+            <form name="contactForm" ng-submit="submit(contactForm.$valid)" novalidate ng-hide="success">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group" ng-class="{'has-error' : contactForm.firstname.$invalid  && contactForm.firstname.$touched || contactForm.firstname.$invalid && !success && submitted}" >
+                    <input type="text" class="form-control" placeholder="First Name, e.g. Patrick" name="firstname" value="" ng-model="firstname" required ng-minlength="2"> 
+                    <div ng-messages="contactForm.firstname.$error" ng-show="contactForm.firstname.$invalid && contactForm.firstname.$touched || contactForm.firstname.$invalid && !success && submitted">
+                      <div ng-messages-include="msgIncludes/messages.htm"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="" ng-model="lastname"> 
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group" ng-class="{'has-error' : contactForm.email.$invalid  && contactForm.email.$touched  || contactForm.email.$invalid && !success && submitted}">
+                    <input type="email" class="form-control" placeholder="Email, e.g. youremailaddress@yourdomain.com" name="email" value="" ng-model="email" required ng-pattern="emailFormat">
+                    <div ng-messages="contactForm.email.$error"   ng-show="contactForm.email.$invalid && contactForm.email.$touched || contactForm.email.$invalid && !success && submitted">
+                      <div ng-messages-include="msgIncludes/messages.htm"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group" ng-class="{'has-error' : contactForm.subject.$invalid && contactForm.subject.$touched  || contactForm.email.$invalid && !success && submitted}">
+                    <input type="text" class="form-control" placeholder="Subject, e.g. website enquiry" name="subject" value="" ng-model="subject" required ng-minlength="5" ng-maxlength="50">
+                    <div ng-messages="contactForm.subject.$error" ng-show="contactForm.subject.$invalid && contactForm.subject.$touched  || contactForm.email.$invalid && !success && submitted">
+                      <div ng-messages-include="msgIncludes/messages.htm"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group" ng-class="{'has-error' : contactForm.message.$invalid   && contactForm.message.$touched  || contactForm.message.$invalid && !success && submitted}">
+                    <textarea class="form-control" name="message" placeholder="enter message here" rows="15" ng-model="message" required ng-maxlength="500"></textarea>
+                    <div ng-messages="contactForm.message.$error" ng-show="contactForm.message.$invalid  && contactForm.message.$touched  || contactForm.message.$invalid && !success && submitted">
+                      <div ng-messages-include="msgIncludes/messages.htm"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-default btn-block" ng-model="submit" value="Submit" ng-click="submitted=true" >
+                  </div>
+                  <!--<div class="g-recaptcha" data-sitekey="6Lff1SEUAAAAAGBz86rQA-9WhNcAqhOzFYFYgM6-"></div>-->
+                </div>
+              </div>
+            </form><!--End of form-->
+
+                    
+                    <pre ng-show="!success">
+                      success = {{success}}
+                      successMsg = {{successMsg}}
+                      errorMsg = {{errorMsg}}
+                      submitted = {{submitted}}
+                      contactForm.$valid = {{ contactForm.$valid | json }}
+                      <br>
+                      contactForm.email.$error = {{ contactForm.email.$error | json }}
+                      contactForm.email.$pristine = {{contactForm.email.$pristine | json}}
+                      contactForm.$error.pattern = {{!!contactForm.$error.pattern}}
+                      <br>
+                      contactForm.subject.$error = {{ contactForm.subject.$error | json }}
+                      contactForm.subject.$pristine = {{contactForm.subject.$pristine | json}}
+                      <br>
+                      contactForm.message.$error = {{ contactForm.message.$error | json }}
+                      contactForm.message.$pristine = {{contactForm.message.$pristine | json}}
+                      <br>
+                      contactForm.message.$invalid = {{contactForm.message.$invalid}}
+                      <br>
+                      contactForm.message.$touched = {{contactForm.message.$touched}}</pre>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

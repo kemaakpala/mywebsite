@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-uk" ng-app="mywebsiteApp">
+  <head>
+    <title>Patrick Akpala</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway:300" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Load Scripts-->
+    <!-- load angular via CDN -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1T4AsvI4eSWFSlpNgm3wSnmRSllj-Bqw&sensor=false&libraries=geometry,places&ext=.js"></script>
+    <script src="//code.angularjs.org/1.6.1/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.6.1/angular-route.min.js"></script>
+    <script src="//code.angularjs.org/1.6.1/angular-resource.min.js"></script>
+    <script src="//code.angularjs.org/1.6.1/angular-messages.js"></script>
+    <Script src="//code.angularjs.org/1.6.1/angular-animate.js"></script>
+    <script src="assets/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src="http://rawgit.com/angular-ui/angular-google-maps/2.0.X/dist/angular-google-maps.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+    <!--<script src='/assets/js/particles.min.js'></script>-->
+    <script src="/main.js"></script>
+    <!-- Latest compiled and minified JavaScript
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.5.11/angular-material.min.js"></script>
+    -->
+
+  </head>
+  <body>
+    <div class="container" id="canvasContainer">
+    <!--<div ng-controller="particlesController">
+      <div particles-js ng-show="showParticles"></div>
+    </div>-->
+    <!-- <canvas id="myCanvas" width="3000" height="3000"></canvas> -->
+      <!--
+        <div class="row" id="particles-js"></div>
+        <script>
+          window.addEventListener("load", function(event) {
+      var vw = Math.max(document.documentElement.clientWidth, document.documentElement.offsetWidth);
+      var vh = Math.max(document.documentElement.clientHeight, document.documentElement.offsetHeight, document.documentElement.scrollHeight,document.body.offsetHeight);
+    });
+    var particleJSON = {
+        "particles": {
+          "number": {
+            "value": 160,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            },
+            "image": {
+              "src": "img/github.svg",
+              "width": 100,
+              "height": 100
+            }
+          },
+          "opacity": {
+            "value": 1,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 0,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 4,
+              "size_min": 0.3,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": false,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 1,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 600
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "bubble"
+            },
+            "onclick": {
+              "enable": false,
+              "mode": "repulse"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 400,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 250,
+              "size": 0,
+              "duration": 2,
+              "opacity": 0,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 400,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      };
+      
+      particlesJS("particles-js", particleJSON, function(){
+        console.log('callback - particles.js cofig loaded');
+      });
+        </script>
+      -->
+    </div>
+    <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"  data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle Navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand h1" href="#">P<small>atrick</small> A<small>kpala</small></a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Price</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container" role="main" ng-view>
+
+    </main>
+    <footer class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6 text-color white">
+              <div>
+                <img src="" class="img-responsive" alt="siteLogo">
+              </div>
+              <ul class="list-unstyled list-inline">
+                <li>
+                  <a class="" href="https://uk.linkedin.com/in/patrick-akpala-9b38a940" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Linkedin">
+                    <i class="fa fa-linkedin  fa-lg"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="https://twitter.com/akpalapatrick" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter">
+                    <i class="fa fa-twitter  fa-lg"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="https://github.com/kemaakpala" target="_blank" data-toggle="tooltip" data-placement="bottom" title="github">
+                    <i class="fa fa-github  fa-lg"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="https://www.freecodecamp.com/kemaakpala" target="_blank"  data-toggle="tooltip" data-placement="bottom" title="Free Code Camp">
+                    <i class="fa fa-free-code-camp  fa-lg"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-6 text-color white text-align right"><i class="fa fa-copyright  fa-lg"></i>2016. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--<script type="text/javascript">
+    // window.addEventListener("load", function(event){
+    //   console.log(document.documentElement.clientHeight, document.documentElement.offsetHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.body.scrollHeight,window.screen.height);
+
+    // });
+    window.addEventListener("load", function(event) {
+      var docBody = document.getElementsByTagName('body');
+      var canvasContainer = document.getElementById('canvasContainer');
+      var mainCanvas = document.createElement('canvas');
+      var vw = Math.max(document.documentElement.clientWidth, document.documentElement.offsetWidth);
+      var vh = Math.max(document.documentElement.clientHeight, document.documentElement.offsetHeight, document.documentElement.scrollHeight,document.body.offsetHeight);
+      console.log(document.documentElement.clientHeight, document.documentElement.offsetHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.body.scrollHeight,window.screen.height);
+      window.addEventListener('resize', setViewPortDimensions);
+      mainCanvas.setAttribute('width', vw);
+      mainCanvas.setAttribute('height', vh);
+      var setViewPortDimensions = function(event){
+          vw = Math.max(document.documentElement.clientWidth, document.documentElement.offsetWidth);
+          vh = Math.max(document.documentElement.clientHeight, document.documentElement.offsetHeight, document.documentElement.scrollHeight,document.body.offsetHeight);
+          mainCanvas.width =  vw;
+          mainCanvas.height= vh;
+          mainCanvas.style.cssText = 'border: 1px solid #fff; position:absolute; z-index:0; top:0; left:0;';
+          
+      };
+      mainCanvas.style.cssText = 'border: 1px solid #fff; position:absolute; z-index:0; top:0; left:0;';
+      canvasContainer.appendChild(mainCanvas);
+      var mainContext = mainCanvas.getContext('2d');
+      var circles = [];
+  
+      function Circle(radius, speed, width, xPos, yPos) {
+        this.radius = radius;
+        this.speed = speed;
+        this.width = width;
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.opacity = 0.05 + Math.random() * 0.5;
+  
+        this.counter = 0;
+  
+        var signHelper = Math.floor(Math.random() * 2);
+  
+        if (signHelper == 1) {
+          this.sign = -1;
+        } else {
+          this.sign = 1;
+        }
+      }
+  
+      Circle.prototype.update = function() {
+  
+        this.counter += this.sign * this.speed;
+  
+        mainContext.beginPath();
+  
+        mainContext.arc(this.xPos + Math.cos(this.counter / 100) * this.radius,
+          this.yPos + Math.sin(this.counter / 100) * this.radius,
+          this.width,
+          0,
+          Math.PI * 2,
+          false);
+  
+        mainContext.closePath();
+  
+        mainContext.fillStyle = 'rgba(185, 211, 238,' + this.opacity + ')';
+        mainContext.fill();
+      };
+  
+      function drawCircles() {
+        for (var i = 0; i < 500; i++) {
+          var randomX = Math.round( - 100 + Math.random() * vw);
+          var randomY = Math.round( Math.random() * vh-(vh*0.25));
+          var speed = 0.02 + Math.random() * 0.25;
+          var size = 3 + Math.random() * 5;
+  
+          var circle = new Circle(100, speed, size, randomX, randomY);
+          circles.push(circle);
+        }
+        draw();
+      }
+      drawCircles();
+  
+      function draw() {
+        mainContext.clearRect(0, 0, vw, vh);
+  
+        for (var i = 0; i < circles.length; i++) {
+          var myCircle = circles[i];
+          myCircle.update();
+        }
+        requestAnimationFrame(draw);
+      }
+    });
+      window.removeEventListener('load', function(event){console.log('event removed')});
+    </script>-->
+  </body>
+</html>
