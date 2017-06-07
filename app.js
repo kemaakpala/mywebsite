@@ -5,8 +5,7 @@ var mongoose = require('mongoose');
 var config = require('./config');
 var setupController = require('./controllers/setupController');
 var apiController = require('./controllers/apiController');
-var Port = process.env.Port || 3000; //set default Port value
-console.log(process.env);
+
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
@@ -22,4 +21,4 @@ setupController(app);
 apiController(app);
 
 
-app.listen(Port);
+app.listen(config.port);

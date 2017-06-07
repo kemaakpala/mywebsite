@@ -1,7 +1,14 @@
-var configValues = require('./config');
+//var configValues = require('./config');
 
-module.exports = {
+var environmentVariables = {
+  env: process.env.NODE_ENV || 'development', //set default environment
+  port: process.env.Port || 3000, //set default Port value
   getDbConnectionString : function(){
-    return 'mongodb://'+configValues.user+':'+configValues.pwd+'@127.0.0.1:27017/mywebsitedb'
+    //this requires the relevant json environment needed to connect to te database. it still needs some work!!!.
+    var envJson = require('./'+ this.env);
+    console.log(envJson);
+    return 'mongodb://'+envJson.user+':'+envJson.pwd+'@'+envJson.ip+'/'+envJson.db;
   }
 };
+
+module.exports = environmentVariables;
