@@ -1,5 +1,5 @@
 //Module
-var mywebsiteApp = angular.module('mywebsiteApp', ['ngRoute', 'ngResource', 'ngMessages', 'ngAnimate', 'uiGmapgoogle-maps']);
+var mywebsiteApp = angular.module('mywebsiteApp', ['ngRoute', 'ngResource', 'ngMessages', 'ngAnimate', 'uiGmapgoogle-maps', 'mgcrea.ngStrap']);
 
 //Routes
 mywebsiteApp.config(function ($routeProvider, $locationProvider) {
