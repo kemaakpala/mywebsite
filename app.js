@@ -8,8 +8,13 @@ var apiController = require('./controllers/apiController');
 var Port = process.env.PORT || 3000; //set default Port value
 
 
-// respond with "hello world" when a GET request is made to the homepage
+//this makes sure you always get to the home page on refresh
 app.get('/', function (req, res) {
+  res.redirect('/index.htm');
+});
+
+//this makes sure you always get to the home page on refresh
+app.get('/index', function (req, res) {
   res.redirect('/index.htm');
 });
 
