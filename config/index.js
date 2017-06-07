@@ -6,7 +6,7 @@ var environmentVariables = {
   getDbConnectionString : function(){
     //this requires the relevant json environment needed to connect to te database. it still needs some work!!!.
     var envJson = require('./'+ this.env);
-    console.log(envJson);
+    console.log(port);
     return 'mongodb://'+envJson.user+':'+envJson.pwd+'@'+envJson.ip+'/'+envJson.db;
   }
 };
