@@ -6,6 +6,7 @@ var config = require('./config');
 var setupController = require('./controllers/setupController');
 var apiController = require('./controllers/apiController');
 var Port = process.env.Port || 3000; //set default Port value
+console.log(process.env);
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
@@ -22,30 +23,3 @@ apiController(app);
 
 
 app.listen(Port);
-//used for settingup administrative permissions
-// use admin
-// db.createUser(
-//   {
-//     user: "patrick",
-//     pwd: "pa77cfkit",
-//     roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
-//   }
-// )
-
-//used for setting up permissions to my website database
-//https://docs.mongodb.com/manual/tutorial/enable-authentication/
-
-// use mywebsitedb
-// db.createUser({
-//   user: 'patrickakpala',
-//   pwd: '6Vn2zZ8pK',
-//   roles: [
-//     {
-//       role: "readWrite",
-//       db: "mywebsitedb",
-//     },
-//     {
-//       role: "read",
-//       db: "reporting"
-//     }]
-// })

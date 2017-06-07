@@ -4,7 +4,7 @@
   "description": "my personal website. this is a simple SPA which showcases my different skills and projects that i'll be working on.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
