@@ -40,8 +40,8 @@ mywebsiteApp.service('contactService', function(){
 //controllers
 mywebsiteApp.controller('homeController',
   [
-    '$scope','$log', '$resource', '$window', 'contactService', 'uiGmapGoogleMapApi',
-    function($scope, $log, $resource, $window, contactService, uiGmapGoogleMapApi){
+    '$scope','$log', '$resource', '$location', 'contactService', 'uiGmapGoogleMapApi',
+    function($scope, $log, $resource, $location, contactService, uiGmapGoogleMapApi){
       $scope.submitted = false;
       $scope.success = contactService.success;
       $scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
@@ -82,10 +82,9 @@ mywebsiteApp.controller('homeController',
             return false
           }else{
             $scope.errorMsg = null;
-            
+            $scope.postURL = location.protocol+'//'+location.host+'/api/mywebsitemessage/:id';
             var Contacts = $resource(
-              //'http://localhost:3000/api/mywebsitemessage/:id',
-              'https://patrick-akpala.herokuapp.com/api/mywebsitemessage/:id',
+              $scope.postURL,
               { id: '@id' },
               {
                 contact: {
