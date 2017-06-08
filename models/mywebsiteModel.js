@@ -3,7 +3,8 @@ var mongoose = require('mongoose');//require mongoose
 var Schema = mongoose.Schema;
 
 var mywebsiteSchema = new Schema({
-  name: String,
+  firstname: String,
+  lastname: String,
   email: String,
   subject: String,
   message: String,
