@@ -84,7 +84,8 @@ mywebsiteApp.controller('homeController',
             $scope.errorMsg = null;
             
             var Contacts = $resource(
-              'http://localhost:3000/api/mywebsitemessage/:id',
+              //'http://localhost:3000/api/mywebsitemessage/:id',
+              'https://patrick-akpala.herokuapp.com/api/mywebsitemessage/:id',
               { id: '@id' },
               {
                 contact: {
