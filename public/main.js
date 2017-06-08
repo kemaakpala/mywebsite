@@ -50,7 +50,7 @@ mywebsiteApp.controller('homeController',
       $scope.map = { center: { latitude: 51.574653, longitude:-0.414034 }, zoom: 14 };
       $scope.showParticles = true;
       
-      console.log(contactService.firstname);
+      //console.log(contactService.firstname);
       $scope.firstname = contactService.firstname;
       $scope.lastname = contactService.lastname;
       $scope.email = contactService.email;
@@ -96,7 +96,7 @@ mywebsiteApp.controller('homeController',
 
             //create newContact
             var newContact = new Contacts();
-            newContact.firstname = contactService.name;
+            newContact.firstname = contactService.firstname;
             newContact.lastname = contactService.lastname;
             newContact.email = contactService.email;
             newContact.subject = contactService.subject;
