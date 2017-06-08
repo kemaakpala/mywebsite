@@ -107,7 +107,7 @@ mywebsiteApp.controller('homeController',
             //save newContact
             newContact.$save(function(contact){
               $scope.success = true;
-              $scope.successMsg = "Thank you very much for getting in touch. I strive to get back to you in a space of 24 hrs.";
+              $scope.successMsg = "Thank you very much for getting in touch. I strive to reply all queries in a space of 24 hrs.";
             });
           }
 
