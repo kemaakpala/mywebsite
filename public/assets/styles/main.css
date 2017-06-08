@@ -62,18 +62,16 @@ div,p, button{
   background-position: 50% 50%;
 }
 
-#successbox.alert.alert-success{
+.alert.alert-jumbotron{
   padding: 30px;
-  color:#3c763d;
-  background-color: #DFF0D8;
  }
 
-#successbox.alert.alert-success h1{
+.alert.alert-jumbotron h1{
   font-size:63px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
-#successbox.alert.alert-success p{
+.alert.alert-jumbotron p{
   font-size: 21px;
   font-weight:200;
   margin-bottom:15px;
