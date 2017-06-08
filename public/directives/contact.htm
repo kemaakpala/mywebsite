@@ -23,9 +23,9 @@
           <li>
             <h2 class="h2 text-color white">Where Else?</h2>
             <p class="text-color white">
-              Did I hear you ask where else you can find me, that's easy please find below a list of placesw you can find me online.
+              Did I hear you ask where else you can find me, that's easy here's a list of places you can find me.
             </p>
-            <ul class="list-unstyled  contact-list">
+            <ul class="list-unstyled contact-list">
               <li>
                 <a class="" href="https://uk.linkedin.com/in/patrick-akpala-9b38a940" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Linkedin">
                   <i class="fa fa-linkedin  fa-lg"></i> Linkedin
@@ -54,14 +54,14 @@
         <div class="row">
           <div class="col-sm-12">
           <div class="row">
-            <div id="successbox" class="col-sm-12  alert alert-success alert-jumbotron" ng-class="{'alert' : success, 'alert-success' : success}" ng-show="success && contactForm.$valid" >
+            <div id="successbox" class="col-sm-12" ng-class="{'alert alert-success alert-jumbotron' : success}" ng-show="success && contactForm.$valid" >
               
               <h1 class="h1 text-center"><i class="fa fa-check-circle-o fa-5x"></i></h1> 
               <h1 class="text-center">Thank You</h1>
               <p>{{successMsg}}</p>
             </div>
 
-            <div id="errorbox" class="col-sm-12" ng-class="{'alert' : !success, 'alert-danger' : !success}" ng-show="!success && contactForm.$invalid && submitted"> {{errorMsg}} </div>
+            <div id="errorbox" class="col-sm-12" ng-class="{'alert alert-danger' : !success}" ng-show="!success && contactForm.$invalid && submitted"> {{errorMsg}} </div>
 
             <form name="contactForm" ng-submit="submit(contactForm.$valid)" novalidate ng-hide="success">
               <div class="row">
@@ -121,7 +121,7 @@
             </form><!--End of form-->
 
                     
-                    <pre ng-show="!success">
+                    <pre ng-show="debugMode === true">
                       success = {{success}}
                       successMsg = {{successMsg}}
                       errorMsg = {{errorMsg}}
@@ -148,3 +148,5 @@
     </div>
   </div>
 </div>
+
+<!-- https://github.com/oblador/angular-scroll -->
