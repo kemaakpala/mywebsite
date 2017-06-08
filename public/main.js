@@ -21,7 +21,7 @@ mywebsiteApp.config(function ($routeProvider, $locationProvider) {
 //googlemaps
 mywebsiteApp.config(function (uiGmapGoogleMapApiProvider){
   uiGmapGoogleMapApiProvider.configure({
-    //    key: 'your api key',
+    key: 'AIzaSyB1T4AsvI4eSWFSlpNgm3wSnmRSllj-Bqw',
     v: '3.20', //defaults to latest 3.X anyhow
     libraries: 'weather,geometry,visualization'
   });
@@ -59,6 +59,7 @@ mywebsiteApp.controller('homeController',
 
       $scope.$watch('firstname', function(){
          contactService.firstname = $scope.firstname;
+         //console.log(contactService.firstname);
       });
 
       $scope.$watch('lastname', function(){
@@ -75,7 +76,7 @@ mywebsiteApp.controller('homeController',
       });
 
       $scope.submit = function(isValid){
-          console.log(isValid);
+         //console.log(isValid);
           if(!isValid){
             $scope.errorMsg = "Oops! There's been an error. Please review and try again."; 
             $scope.successMsg = null
@@ -83,6 +84,7 @@ mywebsiteApp.controller('homeController',
           }else{
             $scope.errorMsg = null;
             $scope.postURL = location.protocol+'//'+location.host+'/api/mywebsitemessage/:id';
+            
             var Contacts = $resource(
               $scope.postURL,
               { id: '@id' },
@@ -105,7 +107,7 @@ mywebsiteApp.controller('homeController',
             //save newContact
             newContact.$save(function(contact){
               $scope.success = true;
-              $scope.successMsg = "Thanks you very much for getting in touch. I strive to get back to you in a space of 24 hrs.";
+              $scope.successMsg = "Thank you very much for getting in touch. I strive to get back to you in a space of 24 hrs.";
             });
           }
 

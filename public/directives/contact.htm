@@ -62,7 +62,8 @@
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group" ng-class="{'has-error' : contactForm.firstname.$invalid  && contactForm.firstname.$touched || contactForm.firstname.$invalid && !success && submitted}" >
-                    <input type="text" class="form-control" placeholder="First Name, e.g. Patrick" name="firstname" value="" ng-model="firstname" required ng-minlength="2"> 
+                    
+                    <input type="text" class="form-control" placeholder="First Name, e.g. Patrick" name="firstname" value="" ng-model="firstname" required ng-minlength="2">                    
                     <div ng-messages="contactForm.firstname.$error" ng-show="contactForm.firstname.$invalid && contactForm.firstname.$touched || contactForm.firstname.$invalid && !success && submitted">
                       <div ng-messages-include="msgIncludes/messages.htm"></div>
                     </div>
