@@ -9,41 +9,42 @@
     </div>
     <div class="row">
       <div class="col-sm-4">
-        <p class="text-color white"> Drop us a line, I'd love to hear from you!</p>
+        <p class="text-color white"> Drop me a line, I'd love to hear from you!</p>
+        <p class="text-color white">patrick.a@gmail.com</p>
         <ul class="list-unstyled contact-list">
-          <li>
+          <!--<li>
             <h2 class="h2 text-color white">Office</h2>
             <p class="text-color white">
               I love to work from home and hold meeetings on skype, or at ofee shop. I prefer cofee shops. 
               Here's a nice one close to where I leave.
             </p>
-            <!--<google-map></google-map>-->
+            <google-map></google-map>
             <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-          </li>
+          </li>-->
           <li>
             <h2 class="h2 text-color white">Where Else?</h2>
             <p class="text-color white">
               Did I hear you ask where else you can find me, that's easy here's a list of places you can find me.
             </p>
-            <ul class="list-unstyled contact-list">
+            <ul class="list-unstyled contact-list list-inline">
               <li>
                 <a class="" href="https://uk.linkedin.com/in/patrick-akpala-9b38a940" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Linkedin">
-                  <i class="fa fa-linkedin  fa-lg"></i> Linkedin
+                  <i class="fa fa-linkedin  fa-lg"></i> 
                 </a>
               </li>
               <li>
                 <a class="" href="https://twitter.com/akpalapatrick" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter">
-                  <i class="fa fa-twitter  fa-lg"> </i> Twitter
+                  <i class="fa fa-twitter  fa-lg"> </i> 
                 </a>
               </li>
               <li>
                 <a class="" href="https://github.com/kemaakpala" target="_blank" data-toggle="tooltip" data-placement="bottom" title="github">
-                  <i class="fa fa-github  fa-lg"></i> Github
+                  <i class="fa fa-github  fa-lg"></i> 
                 </a>
               </li>
               <li>
                 <a class="" href="https://www.freecodecamp.com/kemaakpala" target="_blank"  data-toggle="tooltip" data-placement="bottom" title="Free Code Camp">
-                  <i class="fa fa-free-code-camp  fa-lg"></i> Free code camp
+                  <i class="fa fa-free-code-camp  fa-lg"></i>
                 </a>
               </li>
             </ul>
@@ -81,7 +82,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                   <div class="form-group" ng-class="{'has-error' : contactForm.email.$invalid  && contactForm.email.$touched  || contactForm.email.$invalid && !success && submitted}">
                     <input type="email" class="form-control" placeholder="Email, e.g. youremailaddress@yourdomain.com" name="email" value="" ng-model="email" required ng-pattern="emailFormat">
                     <div ng-messages="contactForm.email.$error"   ng-show="contactForm.email.$invalid && contactForm.email.$touched || contactForm.email.$invalid && !success && submitted">
@@ -89,9 +90,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                   <div class="form-group" ng-class="{'has-error' : contactForm.subject.$invalid && contactForm.subject.$touched  || contactForm.email.$invalid && !success && submitted}">
                     <input type="text" class="form-control" placeholder="Subject, e.g. website enquiry" name="subject" value="" ng-model="subject" required ng-minlength="5" ng-maxlength="50">
                     <div ng-messages="contactForm.subject.$error" ng-show="contactForm.subject.$invalid && contactForm.subject.$touched  || contactForm.email.$invalid && !success && submitted">
@@ -112,8 +111,8 @@
               </div>
               <div class="row">
                 <div class="col-sm-12">
-                  <div class="form-group">
-                    <input type="submit" class="btn btn-default btn-block" ng-model="submit" value="Submit" ng-click="submitted=true" >
+                  <div class="form-group text-right">
+                    <input type="submit" class="btn btn-primary btn-md" ng-model="submit" value="Submit" ng-click="submitted=true" >
                   </div>
                   <!--<div class="g-recaptcha" data-sitekey="6Lff1SEUAAAAAGBz86rQA-9WhNcAqhOzFYFYgM6-"></div>-->
                 </div>
