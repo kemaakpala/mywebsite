@@ -142,12 +142,22 @@ div,p, button{
 .bg-green{
   background-color: #53c300;
 }
+.panel-body{
+  padding: 0px 25px 25px 15px;
+}
+ 
+.panel-header{
+  padding: 0 25px 0 25px;
+}
 .popup-menu{
   background-color: #ececec;
   border-bottom:1px solid rgba(0,0,0,0.25);
   margin-bottom:8px;
   border-radius: 10px 10px 0 0;
   padding:4px 8px;
+}
+.panel-popup-left+p{
+  margin-left:80%
 }
 .panel-popup{
   position:absolute;
@@ -156,6 +166,9 @@ div,p, button{
   background-color: #f6f7f7;
   border-radius: 10px;
   top:20%;
+}
+.panel-popup+ p{
+    width: 75%;
 }
 .panel-popup-left{
   right: 80%;
