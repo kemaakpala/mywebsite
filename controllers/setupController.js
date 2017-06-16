@@ -1,4 +1,5 @@
 var mywebsiteMessages = require('../models/mywebsiteModel');
+var mySkills = require('../models/mySkillsModel');
 
 module.exports = function(app){
   app.get('/api/setupMessages', function(req, res){
@@ -28,6 +29,44 @@ module.exports = function(app){
     }];
 
     mywebsiteMessages.create(starterMessages, function(err, results){
+      res.send(results);
+    });
+
+  });
+
+  app.get('/api/setupSkills', function(req, res){
+    // seed database
+    var starterSkills = [{
+      title: 'HTML5',
+      imagesrc: 'http://placehold.it/32x32',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non.',
+      link: 'http://google.com',
+      isActive: '{{bool()}}',
+      date: new Date()
+    },{
+      title: 'CSS3',
+      imagesrc: 'http://placehold.it/32x32',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non.',
+      link: 'http://google.com',
+      isActive: '{{bool()}}',
+      date: new Date()
+    },{
+      title: 'SASS',
+      imagesrc: 'http://placehold.it/32x32',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non.',
+      link: 'http://google.com',
+      isActive: '{{bool()}}',
+      date: new Date()
+    },{
+      title: 'JAVASCRIPT',
+      imagesrc: 'http://placehold.it/32x32',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non.',
+      link: 'http://google.com',
+      isActive: '{{bool()}}',
+      date: new Date()
+    }];
+
+    mySkills.create(starterSkills, function(err, results){
       res.send(results);
     });
 

@@ -13,8 +13,13 @@ html, body{
 h1, h2, .h2{
   font-family: 'Bellerose Light:1.0','Open Sans', sans-serif;
 }
-div,p, button{
+div, p{
   font-family: 'Bellerose Light:1.0','Raleway', sans-serif;
+}
+button, .btn{
+  font-family: 'Roboto', 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 0.9em;
 }
 
 .text-color{
@@ -143,9 +148,8 @@ div,p, button{
   background-color: #53c300;
 }
 .panel-body{
-  padding: 0px 25px 25px 15px;
+  padding: 0px 25px 15px 25px;
 }
- 
 .panel-header{
   padding: 0 25px 0 25px;
 }
@@ -156,8 +160,9 @@ div,p, button{
   border-radius: 10px 10px 0 0;
   padding:4px 8px;
 }
-.panel-popup-left+p{
-  margin-left:80%
+.panel-popup-left+div{
+  /*margin-left:80%*/
+  float:right;
 }
 .panel-popup{
   position:absolute;
@@ -165,10 +170,11 @@ div,p, button{
   height:122px;
   background-color: #f6f7f7;
   border-radius: 10px;
-  top:20%;
+  top:45%;
 }
-.panel-popup+ p{
+.panel-popup+ div{
     width: 75%;
+    text-align: justify;
 }
 .panel-popup-left{
   right: 80%;
@@ -176,6 +182,7 @@ div,p, button{
 .panel-popup-right{
   left: 80%;
 }
+
 /*contact*/
 .btn-primary{
   background-color: #0799d6;
@@ -198,10 +205,38 @@ textarea.form-control{
 .logo-sm{
   width: 62px;
 }
+
 /*footer*/
 footer .col-sm-12,
 footer .col-md-12{
   padding-top:20px;
+}
+
+/*custom utility classes*/
+.mt-15{
+  margin-top:15px;
+}
+.ml-15{
+  margin-left:15px;
+}
+.mr-15{
+  margin-right:15px;
+}
+.mb-15{
+  margin-bottom:15px;
+}
+
+.pt-15{
+  padding-top:15px;
+}
+.pl-15{
+  padding-left: 15px;
+}
+.pr-15{
+  padding-right:15px;
+}
+.pb-15{
+  padding-bottom: 15px;
 }
 
 @media screen and (min-width:768px){

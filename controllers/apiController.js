@@ -11,6 +11,13 @@ module.exports = function (app){
     });
   });
 
+  app.get('/api/mySkills/', function(req, res){
+    mySkills.find({}, function(err, mySkills){
+      if(err){throw err;}
+      res.send(mySkills);
+    });
+  });
+
   app.get('/api/mywebsitemessages/:email', function(req, res){
     mywebsiteMessages.find({email: req.params.email} ,
       function(err, mywebsitemessages){
