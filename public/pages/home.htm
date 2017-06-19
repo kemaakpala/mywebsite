@@ -48,6 +48,29 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 pb-15">
           <h2 class="h2 text-color white">Skills</h2>
+          <div class="row">
+            <div class="col-sm-6" ng-repeat="myskillRow in myskillsResult">
+              <div class="panel"> 
+                <div class="panel-body">
+                  <div class="panel-popup" ng-class="$even? 'panel-popup-left' : 'panel-popup-right'">
+
+                    <div class="popup-menu">
+                      <div class="circle circle-inline bg-red"></div>
+                      <div class="circle circle-inline bg-orange"></div>
+                      <div class="circle circle-inline bg-green"></div>
+                    </div>
+                    <a href="#"><img class="img-responsive" src="assets/img/{{myskillRow.image}}" alt="angularjs logo"></a>
+                  </div>
+                  <div>
+                    <h2>{{myskillRow.title}}</h2>
+                    <p>{{myskillRow.description}}</p>
+                    <a href="{{myskillRow.link}}" class="btn btn-info">Learn More</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
           <!--<div class="row">
             <div class="col-sm-6 col-md-6">
               <div class="panel">

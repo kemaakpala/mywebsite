@@ -38,28 +38,28 @@ module.exports = function(app){
     // seed database
     var starterSkills = [{
       title: 'HTML5',
-      imagesrc: 'http://placehold.it/32x32',
+      image: 'html5.png',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non.',
       link: 'http://google.com',
       isActive: '{{bool()}}',
       date: new Date()
     },{
       title: 'CSS3',
-      imagesrc: 'http://placehold.it/32x32',
+      image: 'css3.svg',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non.',
       link: 'http://google.com',
       isActive: '{{bool()}}',
       date: new Date()
     },{
       title: 'SASS',
-      imagesrc: 'http://placehold.it/32x32',
+      image: 'Sass-Logo.png',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non.',
       link: 'http://google.com',
       isActive: '{{bool()}}',
       date: new Date()
     },{
       title: 'JAVASCRIPT',
-      imagesrc: 'http://placehold.it/32x32',
+      image: 'javascript.svg',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc neque velit, tempor at bibendum non.',
       link: 'http://google.com',
       isActive: '{{bool()}}',

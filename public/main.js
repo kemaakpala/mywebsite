@@ -42,6 +42,14 @@ mywebsiteApp.controller('homeController',
   [
     '$scope','$log', '$resource', '$location', 'contactService', 'uiGmapGoogleMapApi',
     function($scope, $log, $resource, $location, contactService, uiGmapGoogleMapApi){
+      //skills
+      $scope.getURL = location.protocol + '//' + location.host + '/api/myskills/';
+      console.log($scope.getURL);
+      $scope.myskillsApi = $resource($scope.getURL);
+
+      $scope.myskillsResult = $scope.myskillsApi.query();
+      
+      //contact
       $scope.submitted = false;
       $scope.success = contactService.success;
       $scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
@@ -49,8 +57,7 @@ mywebsiteApp.controller('homeController',
       $scope.errorMsg = null;
       $scope.map = { center: { latitude: 51.574653, longitude:-0.414034 }, zoom: 14 };
       $scope.showParticles = true;
-      $scope.debugMode = 'false';
-      
+      $scope.debugMode = true;
       //console.log(contactService.firstname);
       $scope.firstname = contactService.firstname;
       $scope.lastname = contactService.lastname;
@@ -75,6 +82,7 @@ mywebsiteApp.controller('homeController',
       $scope.$watch('message', function(){
          contactService.message = $scope.message;
       });
+      
 
       $scope.submit = function(isValid){
          //console.log(isValid);
@@ -147,115 +155,115 @@ mywebsiteApp.directive('googleMap', function(){
   }
 });
 
-mywebsiteApp.directive('particlesJs',  particlesDirective);
+// mywebsiteApp.directive('particlesJs',  particlesDirective);
 
-function particlesDirective (){
-  return {
-    restrict: 'A',
-    tempalte: '<div class="row" id="particles-js"></div>',
-    link: function(scope, element, attrs, fn){
-      //$log.debug('test');
-      particlesJS('particleJs', {
-        particles: {
-          number: {
-            value: 80,
-            density: {
-              enable: true,
-              value_area: 800
-            }
-          },
-          color: {
-            value: '#FFFFFF'
-          },
-          shape: {
-            type: "circle",
-            polygon: {
-              nb_sides: 5
-            }
-          },
-          opacity: {
-            value: 0.5,
-            random: false,
-            anim: {
-              enable: false,
-              speed: 1,
-              opacity_min: 0.1,
-              sync: false
-            }
-          },
-          size: {
-            value: 5,
-            random: true,
-            anim: {
-              enable: false,
-              speed: 40,
-              size_min: 0.1,
-              sync: false
-            }
-          },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#ffffff',
-            opacity: 0.4,
-            width: 1
-          },
-          move: {
-            enable: true,
-            speed: 6,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false,
-            attract: {
-              enable: false,
-              rotateX: 600,
-              rotateY: 1200
-            }
-          }
-        },
-        interactivity: {
-          detect_on: 'canvas',
-          events: {
-            onhover: {
-              enable: true,
-              mode: 'grab'
-            },
-            onclick: {
-              enable: true,
-              mode: 'push'
-            },
-            resize: true
-          },
-          modes: {
-            grab: {
-              distance: 140,
-              line_linked: {
-                opacity: 1
-              }
-            },
-            bubble: {
-              distance: 400,
-              size: 40,
-              duration: 2,
-              opacity: 8,
-              speed: 3
-            },
-            repulse: {
-              distance: 200,
-              duration: 0.4
-            },
-            push: {
-              particles_nb: 4
-            },
-            remove: {
-              particles_nb: 2
-            }
-          }
-        },
-        retina_detect: true
-      });
-    }
-  };
-}
+// function particlesDirective (){
+//   return {
+//     restrict: 'A',
+//     tempalte: '<div class="row" id="particles-js"></div>',
+//     link: function(scope, element, attrs, fn){
+//       //$log.debug('test');
+//       particlesJS('particleJs', {
+//         particles: {
+//           number: {
+//             value: 80,
+//             density: {
+//               enable: true,
+//               value_area: 800
+//             }
+//           },
+//           color: {
+//             value: '#FFFFFF'
+//           },
+//           shape: {
+//             type: "circle",
+//             polygon: {
+//               nb_sides: 5
+//             }
+//           },
+//           opacity: {
+//             value: 0.5,
+//             random: false,
+//             anim: {
+//               enable: false,
+//               speed: 1,
+//               opacity_min: 0.1,
+//               sync: false
+//             }
+//           },
+//           size: {
+//             value: 5,
+//             random: true,
+//             anim: {
+//               enable: false,
+//               speed: 40,
+//               size_min: 0.1,
+//               sync: false
+//             }
+//           },
+//           line_linked: {
+//             enable: true,
+//             distance: 150,
+//             color: '#ffffff',
+//             opacity: 0.4,
+//             width: 1
+//           },
+//           move: {
+//             enable: true,
+//             speed: 6,
+//             direction: 'none',
+//             random: false,
+//             straight: false,
+//             out_mode: 'out',
+//             bounce: false,
+//             attract: {
+//               enable: false,
+//               rotateX: 600,
+//               rotateY: 1200
+//             }
+//           }
+//         },
+//         interactivity: {
+//           detect_on: 'canvas',
+//           events: {
+//             onhover: {
+//               enable: true,
+//               mode: 'grab'
+//             },
+//             onclick: {
+//               enable: true,
+//               mode: 'push'
+//             },
+//             resize: true
+//           },
+//           modes: {
+//             grab: {
+//               distance: 140,
+//               line_linked: {
+//                 opacity: 1
+//               }
+//             },
+//             bubble: {
+//               distance: 400,
+//               size: 40,
+//               duration: 2,
+//               opacity: 8,
+//               speed: 3
+//             },
+//             repulse: {
+//               distance: 200,
+//               duration: 0.4
+//             },
+//             push: {
+//               particles_nb: 4
+//             },
+//             remove: {
+//               particles_nb: 2
+//             }
+//           }
+//         },
+//         retina_detect: true
+//       });
+//     }
+//   };
+// }

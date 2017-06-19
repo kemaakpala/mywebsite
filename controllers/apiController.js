@@ -1,9 +1,11 @@
 var mywebsiteMessages = require('../models/mywebsiteModel');
+var myskills = require('../models/mySkillsModel');
 var bodyParser = require('body-parser');
 
 module.exports = function (app){
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: true}));
+
   app.get('/api/mywebsiteMessages/', function(req, res){
     mywebsiteMessages.find({}, function(err, mywebsitemessages){
       if(err){throw err;}
@@ -11,11 +13,33 @@ module.exports = function (app){
     });
   });
 
-  app.get('/api/mySkills/', function(req, res){
-    mySkills.find({}, function(err, mySkills){
+  app.get('/api/myskills/', function(req, res){
+    myskills.find({}, function(err, myskills){
       if(err){throw err;}
-      res.send(mySkills);
+      res.send(myskills);
     });
+  });
+
+  app.get('/api/myskills/:isActive', function(req, res){
+    myskills.find({isActive: req.params.isActive} ,
+      function(err, myskills){
+        if(err){
+          throw err;
+        }
+        res.send(myskills);
+      }
+    );
+  });
+
+  app.get('/api/myskills/:title', function(req, res){
+    myskills.find({title: req.params.title} ,
+      function(err, myskill){
+        if(err){
+          throw err;
+        }
+        res.send(myskill);
+      }
+    );
   });
 
   app.get('/api/mywebsitemessages/:email', function(req, res){
@@ -34,6 +58,15 @@ module.exports = function (app){
       function(err, mywebsitemessage){
         if(err){throw err;}
         res.send(mywebsitemessage);
+      }
+    );
+  });
+
+  app.get('/api/myskills/:id', function(req, res){
+    myskills.findById({ _id: req.params.id } ,
+      function(err, myskills){
+        if(err){throw err;}
+        res.send(myskills);
       }
     );
   });
