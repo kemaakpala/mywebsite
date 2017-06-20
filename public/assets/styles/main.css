@@ -58,8 +58,8 @@ button, .btn{
 .angular-google-map-container { height: 400px; }
 
 #particles-js {
-  border: 1px #CCC solid;
-  position: absolute;
+  /*border: 1px #CCC solid;*/
+  position: fixed;
   top:82px;
   left:0;
   width: 100%;
@@ -68,6 +68,8 @@ button, .btn{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  opacity: 0.25;
+  z-index: 0;
 }
 
 /*nav*/
