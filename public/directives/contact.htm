@@ -116,7 +116,9 @@
                   <div class="form-group">
                     <div class="row ">
                       <div class="col-sm-6">
-                        <div class="g-recaptcha" data-sitekey="6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-"></div>
+                        <!--<div class="g-recaptcha" data-sitekey="6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-"></div>-->
+                            <div vc-recaptcha ng-model="gRecaptchaResponse" theme="---- light or dark ----" size="---- compact, normal or invisible ----"
+                              type="'---- audio or image ----'" key="model.key" lang="---- language code ----"></div>
                       </div>
                       <div class="col-sm-6 text-right">
                         <input type="submit" class="btn btn-primary btn-md" ng-model="submit" value="Submit" ng-click="submitted=true">

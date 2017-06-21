@@ -1,5 +1,5 @@
 //Module
-var mywebsiteApp = angular.module('mywebsiteApp', ['ngRoute', 'ngResource', 'ngMessages', 'ngAnimate', 'uiGmapgoogle-maps', 'mgcrea.ngStrap']);
+var mywebsiteApp = angular.module('mywebsiteApp', ['ngRoute', 'ngResource', 'ngMessages', 'ngAnimate', 'uiGmapgoogle-maps', 'mgcrea.ngStrap', 'vcRecaptcha']);
 
 //Routes
 mywebsiteApp.config(function ($routeProvider, $locationProvider) {
@@ -40,8 +40,8 @@ mywebsiteApp.service('contactService', function(){
 //controllers
 mywebsiteApp.controller('homeController',
   [
-    '$scope','$log', '$resource', '$location', 'contactService', 'uiGmapGoogleMapApi',
-    function($scope, $log, $resource, $location, contactService, uiGmapGoogleMapApi){
+    '$scope','$log', '$resource', '$location', 'contactService', 'vcRecaptchaService','uiGmapGoogleMapApi',
+    function($scope, $log, $resource, $location, contactService, vcRecaptchaService, uiGmapGoogleMapApi){
       //skills
       $scope.getURL = location.protocol + '//' + location.host + '/api/myskills/';
       console.log($scope.getURL);
@@ -58,6 +58,10 @@ mywebsiteApp.controller('homeController',
       $scope.map = { center: { latitude: 51.574653, longitude:-0.414034 }, zoom: 14 };
       $scope.showParticles = true;
       $scope.debugMode = true;
+      //recaptcha
+      $scope.model = {
+        key: '6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw'
+      };
       //console.log(contactService.firstname);
       $scope.firstname = contactService.firstname;
       $scope.lastname = contactService.lastname;
