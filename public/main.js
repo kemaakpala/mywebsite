@@ -58,10 +58,29 @@ mywebsiteApp.controller('homeController',
       $scope.map = { center: { latitude: 51.574653, longitude:-0.414034 }, zoom: 14 };
       $scope.showParticles = true;
       $scope.debugMode = true;
+
       //recaptcha
+      $scope.response = null;
+      $scope.widgetId = null;
+
       $scope.model = {
-        key: '6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw'
+        key: '6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-' //Site key
       };
+      console.log($scope.model.key.length);
+      $scope.setResponse = function (response) {
+        console.info('Response available');
+        $scope.response = response;
+      };
+      $scope.setWidgetId = function (widgetId) {
+        console.info('Created widget ID: %s', widgetId);
+        $scope.widgetId = widgetId;
+      };
+      $scope.cbExpiration = function () {
+        console.info('Captcha expired. Resetting response object');
+        vcRecaptchaService.reload($scope.widgetId);
+        $scope.response = null;
+      };
+
       //console.log(contactService.firstname);
       $scope.firstname = contactService.firstname;
       $scope.lastname = contactService.lastname;
@@ -93,6 +112,11 @@ mywebsiteApp.controller('homeController',
           if(!isValid){
             $scope.errorMsg = "Oops! There's been an error. Please review and try again."; 
             $scope.successMsg = null
+
+            // In case of a failed validation you need to reload the captcha
+            // because each response can be checked just once
+            vcRecaptchaService.reload($scope.widgetId);
+
             return false
           }else{
             $scope.errorMsg = null;
