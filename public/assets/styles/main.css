@@ -206,6 +206,7 @@ textarea.form-control{
 }
 .logo-sm{
   width: 62px;
+  margin-right: 1em;
 }
 
 /*footer*/
@@ -238,7 +239,7 @@ footer .col-md-12{
   padding-right:15px;
 }
 .pb-15{
-  padding-bottom: 15px;-height
+  padding-bottom: 15px;
 }
 
 @media screen and (min-width:768px){
