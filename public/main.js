@@ -57,7 +57,7 @@ mywebsiteApp.controller('homeController',
       $scope.errorMsg = null;
       $scope.map = { center: { latitude: 51.574653, longitude:-0.414034 }, zoom: 14 };
       $scope.showParticles = true;
-      $scope.debugMode = true;
+      $scope.debugMode = false;
 
       //recaptcha
       $scope.response = null;
