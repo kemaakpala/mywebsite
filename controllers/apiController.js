@@ -112,6 +112,44 @@ module.exports = function (app){
     }
   });
 
+  app.post('/api/myskill', function (req, res) {
+
+    if (req.body.id) {
+      //update
+      myskills.findByIdAndUpdate(req.body.id,
+        {
+          title: req.body.title,
+          image: req.body.image,
+          description: req.body.description,
+          link: req.body.link,
+          isActive: req.body.isActive,
+          date: new Date()
+        },
+        function (err, myskill) {
+          if (err) { throw err; }
+
+          res.send('Success!');
+        }
+      );
+    } else {
+      //insert
+
+      var newSkill = myskills({
+        title: req.body.title,
+        image: req.body.image,
+        description: req.body.description,
+        link: req.body.link,
+        isActive: req.body.isActive,
+        date: new Date()
+      });
+
+      newSkill.save(function (err) {
+        if (err) { throw err; }
+        res.send('Success!');
+      });
+    }
+  });
+
   app.delete('/api/mywebsitemessage', function(req, res){
     mywebsiteMessages.findByIdAndRemove(req.body.id,
       function(err){

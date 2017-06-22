@@ -5,8 +5,8 @@ db.myskills.updateMany({},
   {$set : {"image": "html5.png"}}
 )
 //use this to update only only 1 document with column lastname 
-db.myskills.update({"title" : 'SASS'},
-  {$set : {"image": "Sass-Logo.png"}}
+db.myskills.update({"title" : 'CSS3'},
+  {$set : {"image": "css3.png"}}
 )
 
 //use this to rename column on all documents
