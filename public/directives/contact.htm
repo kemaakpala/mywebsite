@@ -1,14 +1,14 @@
 
 <div class="row" id="contact">
-  <div class="col-sm-12">
+  <div class="col-sm-12 col-xs-12">
     <div class="row">
 
-      <div class="col-sm-12">
+      <div class="col-sm-12 col-xs-12">
         <h2 class="h2">Contact</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-xs-12">
         <p> Drop me a line, I'd love to hear from you!
           <br>
           <a href="mailto:patrick.a@gmail.com?Subject=Enquiry from website." target="_top">patrick.a@gmail.com</a>
@@ -53,22 +53,22 @@
           </li>
         </ul>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-8 col-xs-12">
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 col-xs-12">
           <div class="row">
-            <div id="successbox" class="col-sm-12" ng-class="{'alert alert-success alert-jumbotron' : success}" ng-show="success && contactForm.$valid" >
+            <div id="successbox" class="col-sm-12 col-xs-12" ng-class="{'alert alert-success alert-jumbotron' : success}" ng-show="success && contactForm.$valid" >
               
               <h1 class="h1 text-center"><i class="fa fa-check-circle-o fa-5x"></i></h1> 
               <h1 class="text-center">Thank You</h1>
               <p>{{successMsg}}</p>
             </div>
 
-            <div id="errorbox" class="col-sm-12" ng-class="{'alert alert-danger' : !success}" ng-show="!success && contactForm.$invalid && submitted"> {{errorMsg}} </div>
+            <div id="errorbox" class="col-sm-12 col-xs-12" ng-class="{'alert alert-danger' : !success}" ng-show="!success && contactForm.$invalid && submitted"> {{errorMsg}} </div>
 
-            <form name="contactForm" ng-submit="submit(contactForm.$valid)" novalidate ng-hide="success">
+            <form class="col-sm-12 col-xs-12" name="contactForm" ng-submit="submit(contactForm.$valid)" novalidate ng-hide="success">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="form-group" ng-class="{'has-error' : contactForm.firstname.$invalid  && contactForm.firstname.$touched || contactForm.firstname.$invalid && !success && submitted}" >
                     
                     <input type="text" class="form-control" placeholder="First Name, e.g. Patrick" name="firstname" value="" ng-model="firstname" required ng-minlength="2">                    
@@ -77,14 +77,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="" ng-model="lastname"> 
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="form-group" ng-class="{'has-error' : contactForm.email.$invalid  && contactForm.email.$touched  || contactForm.email.$invalid && !success && submitted}">
                     <input type="email" class="form-control" placeholder="Email, e.g. youremailaddress@yourdomain.com" name="email" value="" ng-model="email" required ng-pattern="emailFormat">
                     <div ng-messages="contactForm.email.$error"   ng-show="contactForm.email.$invalid && contactForm.email.$touched || contactForm.email.$invalid && !success && submitted">
@@ -92,7 +92,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="form-group" ng-class="{'has-error' : contactForm.subject.$invalid && contactForm.subject.$touched  || contactForm.email.$invalid && !success && submitted}">
                     <input type="text" class="form-control" placeholder="Subject, e.g. website enquiry" name="subject" value="" ng-model="subject" required ng-minlength="5" ng-maxlength="50">
                     <div ng-messages="contactForm.subject.$error" ng-show="contactForm.subject.$invalid && contactForm.subject.$touched  || contactForm.email.$invalid && !success && submitted">
@@ -102,7 +102,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 col-xs-12">
                   <div class="form-group" ng-class="{'has-error' : contactForm.message.$invalid   && contactForm.message.$touched  || contactForm.message.$invalid && !success && submitted}">
                     <textarea class="form-control" name="message" placeholder="enter message here" rows="15" ng-model="message" required ng-maxlength="500"></textarea>
                     <div ng-messages="contactForm.message.$error" ng-show="contactForm.message.$invalid  && contactForm.message.$touched  || contactForm.message.$invalid && !success && submitted">
@@ -112,44 +112,34 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 col-xs-12">
                   <div class="form-group">
-                    <div class="row ">
-                      <div class="col-sm-6">
-                        <!--<div class="g-recaptcha" data-sitekey="6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-"></div>-->
-                            <div vc-recaptcha ng-model="contactForm.RecaptchaResponse" theme="light" on-create="setWidgetId(widgetId)" on-success="setResponse(response)"
-                              on-expire="cbExpiration()" key="model.key"></div>
-                      </div>
-                      <div class="col-sm-6 text-right">
+                    <div class="row">
+                      <div class="col-sm-6 col-xs-12">
                         <input type="submit" class="btn btn-primary btn-md" ng-model="submit" value="Submit" ng-click="submitted=true">
+                      </div>
+                      <div class="col-sm-6 col-xs-12 pull-right clearfix visible-xs-block">
+                        <!--<div class="g-recaptcha" data-sitekey="6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-"></div>-->
+                            <div class=" text-right" vc-recaptcha ng-model="contactForm.RecaptchaResponse" theme="light" on-create="setWidgetId(widgetId)" on-success="setResponse(response)"
+                              on-expire="cbExpiration()" key="model.key"></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </form><!--End of form-->
-
-                    
-                    <pre ng-show="debugMode == true">
-                      success = {{success}}
-                      successMsg = {{successMsg}}
-                      errorMsg = {{errorMsg}}
-                      submitted = {{submitted}}
-                      contactForm.$valid = {{ contactForm.$valid | json }}
-                      <br>
-                      contactForm.email.$error = {{ contactForm.email.$error | json }}
-                      contactForm.email.$pristine = {{contactForm.email.$pristine | json}}
-                      contactForm.$error.pattern = {{!!contactForm.$error.pattern}}
-                      <br>
-                      contactForm.subject.$error = {{ contactForm.subject.$error | json }}
-                      contactForm.subject.$pristine = {{contactForm.subject.$pristine | json}}
-                      <br>
-                      contactForm.message.$error = {{ contactForm.message.$error | json }}
-                      contactForm.message.$pristine = {{contactForm.message.$pristine | json}}
-                      <br>
-                      contactForm.message.$invalid = {{contactForm.message.$invalid}}
-                      <br>
-                      contactForm.message.$touched = {{contactForm.message.$touched}}</pre>
+            <!--<pre ng-show="debugMode == true">
+              success = {{success}} successMsg = {{successMsg}} errorMsg = {{errorMsg}} submitted = {{submitted}} contactForm.$valid =
+              {{ contactForm.$valid | json }}
+              <br> contactForm.email.$error = {{ contactForm.email.$error | json }} contactForm.email.$pristine =
+              {{contactForm.email.$pristine | json}} contactForm.$error.pattern = {{!!contactForm.$error.pattern}}
+              <br> contactForm.subject.$error = {{ contactForm.subject.$error | json }} contactForm.subject.$pristine
+              = {{contactForm.subject.$pristine | json}}
+              <br> contactForm.message.$error = {{ contactForm.message.$error | json }} contactForm.message.$pristine
+              = {{contactForm.message.$pristine | json}}
+              <br> contactForm.message.$invalid = {{contactForm.message.$invalid}}
+              <br> contactForm.message.$touched = {{contactForm.message.$touched}}
+            </pre>-->
           </div>
           </div>
         </div>

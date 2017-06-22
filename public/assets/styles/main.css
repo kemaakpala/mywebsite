@@ -136,8 +136,12 @@ button, .btn{
     background-position: 50% 50%;
     background-size: cover;
 }
+.panel{
+  padding-bottom:30px;
+}
 .panel-body{
   position:relative;
+  padding: 0px 25px 15px 25px;
 }
 .panel-body .circle{
   width: 8px;
@@ -158,9 +162,6 @@ button, .btn{
 .bg-green{
   background-color: #53c300;
 }
-.panel-body{
-  padding: 0px 25px 15px 25px;
-}
 .panel-header{
   padding: 0 25px 0 25px;
 }
@@ -177,21 +178,27 @@ button, .btn{
 }
 .panel-popup{
   position:absolute;
-  width:122px;
-  height:122px;
   background-color: #f6f7f7;
   border-radius: 10px;
-  top:45%;
+  width: 31.5%;
+  height: auto;
+  top: 20%;
+  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  /*height: 100%;
+  width:122px;
+  height:122px;
+  top:45%;*/
 }
 .panel-popup+ div{
     width: 75%;
     text-align: justify;
 }
 .panel-popup-left{
-  right: 80%;
+  right: 78.5%;
 }
 .panel-popup-right{
-  left: 80%;
+  left:78.5%;
 }
 
 /*contact*/
@@ -255,6 +262,9 @@ footer .col-md-12{
 .pb-15{
   padding-bottom: 15px;
 }
+.full-width{
+  width: 100%;
+}
 
 @media screen and (min-width:768px){
     .navbar-brand-centered {
@@ -293,6 +303,19 @@ footer .col-md-12{
 @media only screen and (min-width : 320px) and (max-width : 767px) {
   .jumbotron .jumbotron-copy{
     margin-top: 0px;
-    padding:0;
+    padding: 0;
+  }
+  .panel-popup{
+    top: 14%;
+    width: 18%;
+  }
+  .panel-popup-left{
+    right: 78.5%;
+  }
+  .panel-popup-right{
+    left: 78.5%;
+  }
+  .btn-md{
+    margin-top
   }
 }
