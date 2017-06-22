@@ -113,7 +113,7 @@ button, .btn{
   padding:15px !important;
   border: 20px solid #0c78a5;
 }
-.jumbotron .col-sm-6 > div{
+.jumbotron .jumbotron-copy{
   padding-top: 100px;
   padding-left:80px;
   padding-bottom:80px;
@@ -264,10 +264,12 @@ footer .col-md-12{
     margin-left: 15px;
     height: auto;
   }
+
 }
 
 /* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
-
-
+@media only screen and (min-width : 320px) and (min-width : 480px) {
+  .jumbotron .jumbotron-copy{
+    padding:0;
+  }
 }
