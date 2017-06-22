@@ -268,7 +268,7 @@ footer .col-md-12{
 }
 
 /* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 320px) and (min-width : 480px) {
+@media only screen and (min-width : 300px) and (min-width : 480px) {
   .jumbotron .jumbotron-copy{
     padding:0;
   }
