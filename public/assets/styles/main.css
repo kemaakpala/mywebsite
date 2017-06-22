@@ -265,7 +265,13 @@ footer .col-md-12{
 .full-width{
   width: 100%;
 }
-
+.navbar-inverse .navbar-toggle{
+  border-color: #269abc;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
 @media screen and (min-width:768px){
     .navbar-brand-centered {
         position: absolute;
@@ -315,7 +321,7 @@ footer .col-md-12{
   .panel-popup-right{
     left: 78.5%;
   }
-  .btn-md{
+  /*.btn-md{
     margin-top
-  }
+  }*/
 }
