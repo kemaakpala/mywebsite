@@ -272,6 +272,16 @@ footer .col-md-12{
   background-color: #31b0d5;
   border-color: #269abc;
 }
+/*recaptcha styles need better way to do this but this will suffice for now*/
+#recaptchaContainer > div{
+  float:right;
+}
+#recaptchaContainer > div:before{
+  display: table;
+  content: " ";
+}
+#recaptchaContainer > div:after{ clear: both; }
+
 @media screen and (min-width:768px){
     .navbar-brand-centered {
         position: absolute;

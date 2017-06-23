@@ -47,7 +47,7 @@
         <div class="col-sm-12 col-md-12 pb-15">
           <h2 class="h2 text-color white" style="margin-top:60px;">Skills</h2>
           <div class="row">
-            <div class="col-sm-6" ng-repeat="myskillRow in myskillsResult">
+            <div class="col-sm-6" ng-repeat="myskillRow in myskillsResult | filter: { isActive: 'true'}">
               <div class="panel"> 
                 <div class="panel-body">
                   <div class="panel-popup" ng-class="$even? 'panel-popup-left' : 'panel-popup-right'">
