@@ -11,7 +11,7 @@
       <div class="col-sm-4 col-xs-12">
         <p> Drop me a line, I'd love to hear from you!
           <br>
-          <a href="mailto:patrick.a@gmail.com?Subject=Enquiry from website." target="_top">patrick.a@gmail.com</a>
+          <a href="mailto:info@patrickakpala.com?Subject=Enquiry from website." target="_top">patrick.a@gmail.com</a>
         </p>
         <ul class="list-unstyled contact-list">
           <!--<li>
@@ -116,19 +116,20 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-xs-12">
-                        <input type="submit" class="btn btn-primary btn-md" ng-model="submit" value="Submit" ng-click="submitted=true">
+                        <input type="submit" class="btn btn-info btn-md" ng-model="submit" value="Submit" ng-click="submitted=true">
                       </div>
                       <div class="col-sm-6 col-xs-12">
                         <!--<div class="g-recaptcha" data-sitekey="6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-"></div>-->
-                            <div vc-recaptcha ng-model="contactForm.RecaptchaResponse" theme="light" size="normal" on-create="setWidgetId(widgetId)" on-success="setResponse(response)"
+                            <div vc-recaptcha theme="light" size="normal" on-create="setWidgetId(widgetId)" on-success="setResponse(response)"
                               on-expire="cbExpiration()" key="'6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-'" id="recaptchaContainer"></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </form><!--End of form-->
-            <!--<pre ng-show="debugMode == true">
+            <pre >
+              scope.model.key || sitekey = {{model.key}}
+              response={{response}}, response2={{response2}}
               success = {{success}} successMsg = {{successMsg}} errorMsg = {{errorMsg}} submitted = {{submitted}} contactForm.$valid =
               {{ contactForm.$valid | json }}
               <br> contactForm.email.$error = {{ contactForm.email.$error | json }} contactForm.email.$pristine =
@@ -139,7 +140,8 @@
               = {{contactForm.message.$pristine | json}}
               <br> contactForm.message.$invalid = {{contactForm.message.$invalid}}
               <br> contactForm.message.$touched = {{contactForm.message.$touched}}
-            </pre>-->
+            </pre>
+            </form><!--End of form-->
           </div>
           </div>
         </div>

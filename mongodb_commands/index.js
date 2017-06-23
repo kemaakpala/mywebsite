@@ -16,7 +16,7 @@ db.mywebsitemessages.updateMany( {}, { $rename: { "name": "firstname" } } )
 db.mywebsitemessages.update( {}, { $rename: { "name": "firstname" } } )
 
 db.myskills.update({},
-  { $set: { "image": "htnl5.png" } },
+  { $set: { "image": "html5.png" } },
   {
     upsert: false,
     multi: true
