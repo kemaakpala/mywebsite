@@ -130,7 +130,7 @@ button, .btn{
 .profile_image_container {
   /*text-align: right;*/
     width: 100%;
-    padding-bottom: 100%;
+    padding-bottom: 115%;
     background-image: url('/assets/img/bkg_placeholder_profile_image.png');
     background-repeat: no-repeat;
     background-position: 50% 50%;
