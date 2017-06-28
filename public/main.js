@@ -1,5 +1,5 @@
 //Module
-var mywebsiteApp = angular.module('mywebsiteApp', ['ngRoute', 'ngResource', 'ngMessages', 'ngAnimate', 'uiGmapgoogle-maps', 'mgcrea.ngStrap', 'vcRecaptcha']);
+var mywebsiteApp = angular.module('mywebsiteApp', ['ngRoute', 'ngResource', 'ngMessages', 'ngAnimate', 'mgcrea.ngStrap', 'vcRecaptcha']);
 
 //Routes
 mywebsiteApp.config(function ($routeProvider, $locationProvider) {
@@ -18,15 +18,6 @@ mywebsiteApp.config(function ($routeProvider, $locationProvider) {
 
 });
 
-//googlemaps
-mywebsiteApp.config(function (uiGmapGoogleMapApiProvider){
-  uiGmapGoogleMapApiProvider.configure({
-    key: 'AIzaSyB1T4AsvI4eSWFSlpNgm3wSnmRSllj-Bqw',
-    v: '3.20', //defaults to latest 3.X anyhow
-    libraries: 'weather,geometry,visualization'
-  });
-});
-
 //services
 mywebsiteApp.service('contactService', function(){
    this.firstname = '';
@@ -40,8 +31,8 @@ mywebsiteApp.service('contactService', function(){
 //controllers
 mywebsiteApp.controller('homeController',
   [
-    '$scope','$log', '$resource', '$location', 'contactService', 'vcRecaptchaService','uiGmapGoogleMapApi',
-    function($scope, $log, $resource, $location, contactService, vcRecaptchaService, uiGmapGoogleMapApi){
+    '$scope','$log', '$resource', '$location', 'contactService', 'vcRecaptchaService',
+    function($scope, $log, $resource, $location, contactService, vcRecaptchaService){
       //skills
       $scope.getURL = location.protocol + '//' + location.host + '/api/myskills/';
       console.log($scope.getURL);
@@ -108,7 +99,12 @@ mywebsiteApp.controller('homeController',
       
 
       $scope.submit = function(isValid){
-         //console.log(isValid);
+
+        $log.info(isValid);
+        $log.info(contactForm.gRecaptchaResponse);
+        $log.info($scope.gRecaptchaResponse);
+         $log.info(contactForm.valid);
+
           if(!isValid){
             $scope.errorMsg = "Oops! There's been an error. Please review and try again."; 
             $scope.successMsg = null
@@ -117,9 +113,22 @@ mywebsiteApp.controller('homeController',
             // because each response can be checked just once
             vcRecaptchaService.reload($scope.widgetId);
 
-            return false
+            //return false
           }else{
-            $scope.errorMsg = null;
+            $scope.verifyURL =  'https://www.google.com/recaptcha/api/siteverify';
+            var VerifyContact = $resource(
+              $scope.verifyURL,
+              {},
+              {
+                recaptchaAction: {
+                  method: 'POST',
+                  params:{
+                    secret: '6LdJQSYUAAAAABhhQa0ILQt2TCWqsvNIfJfjal1o',
+                    response: $scope.gRecaptchaResponse
+                  }
+                }
+              }
+            );
             $scope.postURL = location.protocol+'//'+location.host+'/api/mywebsitemessage/:id';
             
             var Contacts = $resource(
@@ -143,6 +152,7 @@ mywebsiteApp.controller('homeController',
             
             //save newContact
             newContact.$save(function(contact){
+              $scope.errorMsg = null;
               $scope.success = true;
               $scope.successMsg = "Thank you very much for getting in touch. I strive to reply all queries in a space of 24 hrs.";
             });
