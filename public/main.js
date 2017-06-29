@@ -116,7 +116,8 @@ mywebsiteApp.controller('homeController',
             return false
           }else{
            $scope.verifyURL =  'https://www.google.com/recaptcha/api/siteverify';
-            var VerifyContact = $resource(
+           
+           var VerifyContact = $resource(
               $scope.verifyURL,
               {},
               {
@@ -129,6 +130,7 @@ mywebsiteApp.controller('homeController',
                 }
               }
             );
+
             $scope.postURL = location.protocol+'//'+location.host+'/api/mywebsitemessage/:id';
             
             var Contacts = $resource(

@@ -106,12 +106,11 @@
                 <div class="col-sm-12 col-xs-12">
                   <div class="form-group">
                     <div class="row">
-                      <div class="col-sm-6 col-xs-12">
+                      <div class="col-sm-6 col-xs-6">
                         <input type="submit" class="btn btn-info btn-md" ng-model="submit" value="Submit" ng-click="submitted=true">
                       </div>
-                      <div class="col-sm-6 col-xs-12">
-                        <!--<div class="g-recaptcha" data-sitekey="6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-"></div>-->
-                            <div vc-recaptcha theme="light" size="normal" on-create="setWidgetId(widgetId)" on-success="setResponse(response)"
+                      <div class="col-sm-6 col-xs-6">
+                        <div vc-recaptcha theme="light" size="normal" on-create="setWidgetId(widgetId)" on-success="setResponse(response)"
                               on-expire="cbExpiration()" key="'6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-'" ng-model="contactForm.gRecaptchaResponse" id="recaptchaContainer"></div>
                       </div>
                     </div>
