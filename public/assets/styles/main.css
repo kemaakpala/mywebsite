@@ -7,12 +7,16 @@ html, body{
   background: radial-gradient(ellipse at center, rgba(48,72,114,1) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#304872', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   font-family: 'Bellerose Light:1.0','Open Sans', sans-serif;
+  font-size:17px;
   color: #3f3f3f;
 }
 
-h1, h2, .h2{
+h1, .h1, h2, .h2{
   font-family: 'Bellerose Light:1.0','Open Sans', sans-serif;
 }
+/*h1, .h1{
+  font-size:62px;
+}*/
 div, p{
   font-family: 'Bellerose Light:1.0','Raleway', sans-serif;
 }
@@ -98,7 +102,7 @@ button, .btn{
  }
 
 .alert.alert-jumbotron h1{
-  font-size:63px;
+  font-size:62px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -122,6 +126,7 @@ button, .btn{
   margin-top: 100px;
 }
 .jumbotron h1{
+  font-size: 62px;
   padding-bottom: 20px;
 }
 .jumbotron p{
@@ -130,7 +135,7 @@ button, .btn{
 .profile_image_container {
   /*text-align: right;*/
     width: 100%;
-    padding-bottom: 115%;
+    padding-bottom: 100%;
     background-image: url('/assets/img/bkg_placeholder_profile_image.png');
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -376,5 +381,14 @@ footer .col-md-12{
   }
   .jumbotron .jumbotron-copy{
     margin-top: 0px;
+  }
+  .profile_image_container{
+    padding-bottom: 107%;
+    /*background-position: 60% 50%;*/
+  }
+  .jumbotron .h1, .jumbotron h1{
+    font-size:62px;
+    margin-top:0;
+    margin-bottom:0;
   }
 }

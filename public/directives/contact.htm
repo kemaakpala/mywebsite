@@ -48,13 +48,6 @@
         <div class="row">
           <div class="col-sm-12 col-xs-12">
           <div class="row">
-            <!--<div id="successbox" class="col-sm-12 col-xs-12" ng-class="{'alert alert-success alert-jumbotron' : success}" ng-show="success && contactForm.$valid" >
-              
-              <h1 class="h1 text-center"><i class="fa fa-check-circle-o fa-5x"></i></h1> 
-              <h1 class="text-center">Thank You</h1>
-              <p>{{successMsg}}</p>
-            </div>-->
-
             <div id="errorbox" class="col-sm-12 col-xs-12" ng-class="{'alert alert-danger' : !success}" ng-show="!success && contactForm.$invalid && submitted"> {{errorMsg}} </div>
 
             <form class="col-sm-12 col-xs-12" name="contactForm" ng-submit="submit(contactForm.$valid)" novalidate >
