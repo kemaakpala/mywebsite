@@ -31,8 +31,8 @@ mywebsiteApp.service('contactService', function(){
 //controllers ,
 mywebsiteApp.controller('homeController',
   [
-    '$scope','$log', '$resource', '$location', 'contactService', 'vcRecaptchaService',
-    function($scope, $log, $resource, $location, contactService, vcRecaptchaService){
+    '$scope','$log', '$resource', '$location', 'contactService', 'vcRecaptchaService', '$modal',
+    function($scope, $log, $resource, $location, contactService, vcRecaptchaService, $modal){
       //skills
       $scope.getURL = location.protocol + '//' + location.host + '/api/myskills/';
       console.log($scope.getURL);
@@ -157,6 +157,17 @@ mywebsiteApp.controller('homeController',
               $scope.errorMsg = null;
               $scope.success = true;
               $scope.successMsg = "Thank you very much for getting in touch. I strive to reply all queries in a space of 24 hrs.";
+              var successModal = $modal({title: 'Thank You', templateUrl:'/directives/templates/modal.tpl.html', content: $scope.successMsg, show:true, animation: 'am-fade'});
+              $scope.firstname = '';
+              $scope.lastname = '';
+              $scope.email = '';
+              $scope.subject = '';
+              $scope.message = '';
+              $scope.contactForm.$setPristine();
+              $scope.contactForm.$setUntouched();
+              $scope.success = false;
+              $scope.submitted = false;
+              vcRecaptchaService.reload($scope.widgetId);
             });
           }
 
