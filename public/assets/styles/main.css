@@ -282,6 +282,21 @@ footer .col-md-12{
 }
 #recaptchaContainer > div:after{ clear: both; }
 
+
+.collapse.am-collapse {
+  animation-duration: .3s;
+  animation-timing-function: ease;
+  animation-fill-mode: backwards;
+  overflow: hidden;
+}
+.collapse.am-collapse.in-remove {
+  animation-name: collapse;
+  display: block;
+}
+.collapse.am-collapse.in-add {
+  animation-name: expand;
+}
+
 @media screen and (min-width:768px){
     .navbar-brand-centered {
         position: absolute;
