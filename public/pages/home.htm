@@ -8,8 +8,8 @@
           <div class="col-sm-6">
             <div class="jumbotron-copy">
               <h1 class="h1">Patrick Here.</h1>
-              <p>Welcome to my website. I'm a fullstack developer with 5 years worth of experience. I love Keeping It Clean and
-                Simple, I find this is always true with code as well as design. Hit me up, via any one of my social links
+              <p>Welcome to my website. I'm a fullstack developer with 5 years worth of experience. I love Keeping It Clean
+                and Simple, I find this is always true with code as well as design. Hit me up, via any one of my social links
                 and lets get started on building wonderful projects together, I'm looking forward to working with you.
               </p>
               <ul class="list-unstyled list-inline">
@@ -48,7 +48,7 @@
           <h2 class="h2 text-color white" style="margin-top:60px;">Skills</h2>
           <div class="row">
             <div class="col-sm-6" ng-repeat="myskillRow in myskillsResult | filter: { isActive: 'true'}">
-              <div class="panel"> 
+              <div class="panel">
                 <div class="panel-body">
                   <div class="panel-popup" ng-class="$even? 'panel-popup-left' : 'panel-popup-right'">
                     <div class="popup-menu">
@@ -75,5 +75,12 @@
   </div>
   <!-- row about-->
 </div>
+<section class="bg-white">
+
+  <div class="container ">
+    <!-- Contact Directive-->
+    <contact-form></contact-form>
+  </div>
+</section>
 <!--<div class="bg-white">-->
 <!--</div>-->

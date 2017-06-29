@@ -1,5 +1,5 @@
-//Module , 'vcRecaptcha'
-var mywebsiteApp = angular.module('mywebsiteApp', ['ngRoute', 'ngResource', 'ngMessages', 'ngAnimate', 'mgcrea.ngStrap']);
+//Module 
+var mywebsiteApp = angular.module('mywebsiteApp', ['ngRoute', 'ngResource', 'ngMessages', 'ngAnimate', 'mgcrea.ngStrap', 'vcRecaptcha']);
 
 //Routes
 mywebsiteApp.config(function ($routeProvider, $locationProvider) {
@@ -28,11 +28,11 @@ mywebsiteApp.service('contactService', function(){
    this.success = false;
 });
 
-//controllers 'vcRecaptchaService',
+//controllers ,
 mywebsiteApp.controller('homeController',
   [
-    '$scope','$log', '$resource', '$location', 'contactService',
-    function($scope, $log, $resource, $location, contactService){
+    '$scope','$log', '$resource', '$location', 'contactService', 'vcRecaptchaService',
+    function($scope, $log, $resource, $location, contactService, vcRecaptchaService){
       //skills
       $scope.getURL = location.protocol + '//' + location.host + '/api/myskills/';
       console.log($scope.getURL);
@@ -51,26 +51,26 @@ mywebsiteApp.controller('homeController',
       $scope.debugMode = false;
 
       //recaptcha
-      // $scope.response = null;
-      // $scope.widgetId = null;
+      $scope.response = null;
+      $scope.widgetId = null;
 
-      // $scope.model = {
-      //   key: '6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-' //Site key
-      // };
-      // console.log($scope.model.key.length);
-      // $scope.setResponse = function (response) {
-      //   console.info('Response available');
-      //   $scope.response = response;
-      // };
-      // $scope.setWidgetId = function (widgetId) {
-      //   console.info('Created widget ID: %s', widgetId);
-      //   $scope.widgetId = widgetId;
-      // };
-      // $scope.cbExpiration = function () {
-      //   console.info('Captcha expired. Resetting response object');
-      //   vcRecaptchaService.reload($scope.widgetId);
-      //   $scope.response = null;
-      // };
+      $scope.model = {
+        key: '6LdJQSYUAAAAAE01Dh8EcUbtFM0T4TxJksn8ugw-' //Site key
+      };
+      console.log($scope.model.key.length);
+      $scope.setResponse = function (response) {
+        console.info('Response available');
+        $scope.response = response;
+      };
+      $scope.setWidgetId = function (widgetId) {
+        console.info('Created widget ID: %s', widgetId);
+        $scope.widgetId = widgetId;
+      };
+      $scope.cbExpiration = function () {
+        console.info('Captcha expired. Resetting response object');
+        vcRecaptchaService.reload($scope.widgetId);
+        $scope.response = null;
+      };
 
       //console.log(contactService.firstname);
       $scope.firstname = contactService.firstname;
@@ -99,38 +99,36 @@ mywebsiteApp.controller('homeController',
       
 
       $scope.submit = function(isValid){
+        
+        $log.info(isValid);
+        $log.info(contactForm.gRecaptchaResponse);
+        $log.info($scope.gRecaptchaResponse);
+        $log.info(contactForm.valid);
 
-        // $log.info(isValid);
-        // $log.info(contactForm.gRecaptchaResponse);
-        // $log.info($scope.gRecaptchaResponse);
-        //  $log.info(contactForm.valid);
-
-          if(!isValid){alert($scope);
-            $log.log($scope.errorMsg);
-            $log.message($scope.errorMsg);
+          if(!isValid){
             $scope.errorMsg = "Oops! There's been an error. Please review and try again."; 
             $scope.successMsg = null
 
             // In case of a failed validation you need to reload the captcha
             // because each response can be checked just once
-            // vcRecaptchaService.reload($scope.widgetId);
+            vcRecaptchaService.reload($scope.widgetId);
 
             return false
           }else{
-            // $scope.verifyURL =  'https://www.google.com/recaptcha/api/siteverify';
-            // var VerifyContact = $resource(
-            //   $scope.verifyURL,
-            //   {},
-            //   {
-            //     recaptchaAction: {
-            //       method: 'POST',
-            //       params:{
-            //         secret: '6LdJQSYUAAAAABhhQa0ILQt2TCWqsvNIfJfjal1o',
-            //         response: $scope.gRecaptchaResponse
-            //       }
-            //     }
-            //   }
-            // );
+           $scope.verifyURL =  'https://www.google.com/recaptcha/api/siteverify';
+            var VerifyContact = $resource(
+              $scope.verifyURL,
+              {},
+              {
+                recaptchaAction: {
+                  method: 'POST',
+                  params:{
+                    secret: '6LdJQSYUAAAAABhhQa0ILQt2TCWqsvNIfJfjal1o',
+                    response: $scope.gRecaptchaResponse
+                  }
+                }
+              }
+            );
             $scope.postURL = location.protocol+'//'+location.host+'/api/mywebsitemessage/:id';
             
             var Contacts = $resource(
@@ -166,16 +164,12 @@ mywebsiteApp.controller('homeController',
   ]
 );
 
-// mywebsiteApp.controller('particlesController', ['$scope', function($scope){
-//   $scope.showParticles = true;
-// }]);
-
 //directives
 mywebsiteApp.directive('contactForm', function(){
   return {
     restrict: 'EA',//EACM
     templateUrl: 'directives/contact.htm',
-    replace: true, //, //false does not remove custom tag from html
+    replace: true //, //false does not remove custom tag from html
     //scope: {
       //isolated scope directive cannot directly affect what's going on in its parent page
 
@@ -187,7 +181,7 @@ mywebsiteApp.directive('googleMap', function(){
   return {
     restrict: 'EA',//EACM
     templateUrl: 'directives/map.htm',
-    replace: true, //, //false does not remove custom tag from html
+    replace: true //, //false does not remove custom tag from html
     //scope: {
       //isolated scope directive cannot directly affect what's going on in its parent page
 
