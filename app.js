@@ -1,11 +1,19 @@
-var express = require('express');//require express
-var app = express();//call express
-var bodyParser = require('body-parser');//require node modules bordy-parser
-var mongoose = require('mongoose');
-var config = require('./config');
-var setupController = require('./controllers/setupController');
-var apiController = require('./controllers/apiController');
-var Port = process.env.PORT || 3000; //set default Port value
+const express = require('express');//require express
+const app = express();//call express
+const https = require('https');
+const http = require('http');
+const fs = require('fs');
+const OPTIONS = {
+  key: fs.readFileSync('./devssl/localhost.key'),
+  cert: fs.readFileSync('./devssl/localhost.crt')
+};
+const bodyParser = require('body-parser');//require node modules bordy-parser
+const mongoose = require('mongoose');
+const config = require('./config');
+const setupController = require('./controllers/setupController');
+const apiController = require('./controllers/apiController');
+const nodemailer = require('nodemailer');
+const Port = process.env.PORT || 3000; //set default Port value
 
 
 //this makes sure you always get to the home page on refresh
@@ -26,5 +34,37 @@ mongoose.connect(config.getDbConnectionString());
 setupController(app);
 apiController(app);
 
+
+//create reusable transporter object using the default SMTP transport
+/*let transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true, // secure:true for port 465, secure:false for port 587
+  auth: {
+    user: 'admin@patrickakpala.com',
+    pass: '2g2bwSyHF^5o'
+  }
+});
+
+//setup email data with unicode symbols
+
+let mailOptions = {
+  from: '"Fred Foo" <patrickakpala@yahoo.co.uk>',// sender address
+  to: 'admin@patrickakpala.com, info@patrickakpala.com, iam@patrickakala.com', //list of receivers
+  subject: 'Hello!', //Subject line
+  text: 'Plain text Hello world ?',//Plain text body
+  html: '<b>Html Hello world</b>'//html body
+};
+
+//send email with defined transport object
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error){
+    return console.log(error);
+  }
+  console.log('Message %s sent: %s', info.messageId, info.response);
+});*/
+
+//http.createServer(app).listen(Port);
+//https.createServer(OPTIONS, app).listen(10443);
 
 app.listen(Port);

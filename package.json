@@ -12,7 +12,8 @@
     "angular-recaptcha": "^4.1.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.3",
-    "mongoose": "^4.9.9"
+    "mongoose": "^4.9.9",
+    "nodemailer": "^4.0.1"
   },
   "devDependencies": {
     "ejs": "^2.5.6"
