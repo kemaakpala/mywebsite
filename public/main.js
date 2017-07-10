@@ -157,7 +157,17 @@ mywebsiteApp.controller('homeController',
               $scope.errorMsg = null;
               $scope.success = true;
               $scope.successMsg = "Thank you very much for getting in touch. I strive to reply all queries in a space of 24 hrs.";
-              var successModal = $modal({title: 'Thank You', templateUrl:'/directives/templates/modal.tpl.html', content: $scope.successMsg, show:true, animation: 'am-fade'});
+              var successModal = $modal({
+                title: 'Thank You', 
+                templateUrl:'/directives/templates/modal.tpl.html', 
+                content: $scope.successMsg, 
+                show:true, 
+                animation: 'am-fade'
+              });
+
+              //send email
+              
+              //reset email values
               $scope.firstname = '';
               $scope.lastname = '';
               $scope.email = '';
