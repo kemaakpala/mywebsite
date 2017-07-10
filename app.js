@@ -54,7 +54,7 @@ let mailOptions = {
   to: 'admin@patrickakpala.com, info@patrickakpala.com, iam@patrickakpala.com', //list of receivers
   subject: 'Hello!', //Subject line
   text: 'Plain text Hello world ?',//Plain text body
-  html: '<b>Html Hello world ?</b>'//html body
+  html: '<b>Html Hello world test?</b>'//html body
 };
 
 //send email with defined transport object
