@@ -3,5 +3,9 @@
     "pwd": "6Vn2zZ8pK",
     "db": "mywebsitedb",
     "ip": "ds111922.mlab.com:11922",
-    "log": "this is the production JSON"
+    "log": "this is the production JSON",
+    "email": {
+        "user": "admin@patrickakpala.com",
+        "pwd": "2g2bwSyHF^5o"
+    }
 }

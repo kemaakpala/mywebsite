@@ -3,5 +3,9 @@
         "pwd":"6Vn2zZ8pK",
         "db": "mywebsitedb",
         "ip": "127.0.0.1:27017",
-        "log": "this is the development JSON"
+        "log": "this is the development JSON",
+        "email": {
+                "user": "admin@patrickakpala.com",
+                "pwd": "2g2bwSyHF^5o"
+        }
 }
