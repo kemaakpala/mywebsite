@@ -132,7 +132,8 @@ mywebsiteApp.controller('homeController',
             );
 
             $scope.postURL = location.protocol+'//'+location.host+'/api/mywebsitemessage/:id';
-            
+            $scope.postEmailURL = location.protocol+'//'+location.host+'/api/sendEmail';
+            console.log($scope.postEmailURL);
             var Contacts = $resource(
               $scope.postURL,
               { id: '@id' },
@@ -140,6 +141,17 @@ mywebsiteApp.controller('homeController',
                 contact: {
                   method: 'POST',
                   params:{ firstname: '', lastname: '', email: '', subject: '', message: '' }
+                }
+              }
+            );
+
+            var ContactEmail = $resource(
+              $scope.postEmailURL,
+              {},
+              { 
+                contactEmail: {
+                  method: 'POST',
+                  params: { firstname: '', lastname: '', email: '', subject: '', message: '' }
                 }
               }
             );
@@ -152,6 +164,13 @@ mywebsiteApp.controller('homeController',
             newContact.subject = contactService.subject;
             newContact.message = contactService.message;
             
+            var newContactEmail = new ContactEmail();
+            newContactEmail.firstname = contactService.firstname;
+            newContactEmail.lastname = contactService.lastname;
+            newContactEmail.email = contactService.email;
+            newContactEmail.subject = contactService.subject;
+            newContactEmail.message = contactService.message;
+
             //save newContact
             newContact.$save(function(contact){
               $scope.errorMsg = null;
@@ -164,8 +183,6 @@ mywebsiteApp.controller('homeController',
                 show:true, 
                 animation: 'am-fade'
               });
-
-              //send email
               
               //reset email values
               $scope.firstname = '';
@@ -179,6 +196,8 @@ mywebsiteApp.controller('homeController',
               $scope.submitted = false;
               vcRecaptchaService.reload($scope.widgetId);
             });
+
+            newContactEmail.$save(function(contactEmail){ console.log('email sent');});
           }
 
          };
