@@ -14,10 +14,10 @@ const nodemailer = require('nodemailer');
 const setupController = require('./controllers/setupController');
 const apiController = require('./controllers/apiController');
 const Port = process.env.PORT || 3000; //set default Port value
-console.log(process.env);
+//console.log(process.env);
 const smtpPort = 10443;
 
-console.log(process.env);
+//console.log(process.env);
 //this makes sure you always get to the home page on refresh
 app.get('/', function (req, res) {
   res.redirect('/index.htm');
