@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "author": "patrick akpala",
   "license": "ISC",
   "dependencies": {
     "angular-recaptcha": "^4.1.0",
@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "ejs": "^2.5.6"
+  },
+  "engines": {
+    "npm": "~6.11.1"
   }
 }
