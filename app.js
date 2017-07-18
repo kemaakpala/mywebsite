@@ -28,6 +28,11 @@ app.get('/index', function (req, res) {
   res.redirect('/index.htm');
 });
 
+//this makes sure you always get to the home page on refresh
+app.get('/admin', function (req, res) {
+  res.redirect('/admin.htm');
+});
+
 app.use('/', express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
@@ -35,35 +40,6 @@ app.set('view engine', 'ejs');
 mongoose.connect(config.getDbConnectionString());
 setupController(app);
 apiController(app);
-
-// //create reusable transporter object using the default SMTP transport
-// let transporter = nodemailer.createTransport({
-//   host: 'smtp.gmail.com',
-//   port: 465,
-//   secure: true, // secure:true for port 465, secure:false for port 587
-//   auth: {
-//     user: config.getMailConnectionObj().user,
-//     pass: config.getMailConnectionObj().pwd
-//   }
-// });
-
-// //setup email data with unicode symbols
-
-// let mailOptions = {
-//   from: '"Fred Foo" <patrickakpala@yahoo.co.uk>',// sender address
-//   to: 'admin@patrickakpala.com, info@patrickakpala.com, iam@patrickakpala.com', //list of receivers
-//   subject: 'Hello!', //Subject line
-//   text: 'Plain text Hello world ?',//Plain text body
-//   html: '<b>Html Hello world test?</b>'//html body
-// };
-
-// //send email with defined transport object
-// transporter.sendMail(mailOptions, (error, info) => {
-//   if (error){
-//     return console.log(error);
-//   }
-//   console.log('Message %s sent: %s', info.messageId, info.response);
-// });
 
 http.createServer(app).listen(Port);
 https.createServer(OPTIONS, app).listen(10443);

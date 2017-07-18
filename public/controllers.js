@@ -175,3 +175,21 @@ mywebsiteApp.controller('homeController',
     }
   ]
 );
+
+mywebsiteApp.controller('blogController',
+  [
+    '$scope', '$log', '$resource'
+    , function ($scope, $log, $resource) {
+
+    }
+  ]
+);
+
+mywebsiteApp.controller('adminController',
+  [
+    '$scope', '$log', '$resource',' $location'
+    , function ($scope, $log, $resource, $location) {
+        $scope.test = 'test';
+    }
+  ]
+);
