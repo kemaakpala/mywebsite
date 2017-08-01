@@ -15,7 +15,7 @@ mywebsiteApp.config(function ($routeProvider, $locationProvider) {
       controller: 'blogController'
     })
     .when('/admin',{
-      templateUrl: 'pages/admin/admin.htm',
+      templateUrl: 'admin/index.htm',
       controller: 'adminController'
     })
    .otherwise({ redirectTo: '/index' });

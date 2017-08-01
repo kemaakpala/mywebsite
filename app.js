@@ -19,21 +19,26 @@ const smtpPort = 10443;
 
 //console.log(process.env);
 //this makes sure you always get to the home page on refresh
-app.get('/', function (req, res) {
+app.get('/', function (req, res, next) {
   res.redirect('/index.htm');
+  next();
 });
 
 //this makes sure you always get to the home page on refresh
-app.get('/index', function (req, res) {
+app.get('/index', function (req, res, next) {
   res.redirect('/index.htm');
+  next();
 });
 
 //this makes sure you always get to the home page on refresh
-app.get('/admin', function (req, res) {
-  res.redirect('/admin.htm');
+app.get('/admin', function (req, res, next) {
+  //console.log(res.render('admin/index.htm'));
+//   res.redirect('/admin/index.htm');
+//   next();
 });
 
 app.use('/', express.static(__dirname + '/public'));
+app.use('/admin', express.static(__dirname + '/public/admin'));
 
 app.set('view engine', 'ejs');
 
