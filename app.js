@@ -14,13 +14,14 @@ const nodemailer = require('nodemailer');
 const setupController = require('./controllers/setupController');
 const apiController = require('./controllers/apiController');
 const Port = process.env.PORT || 3000; //set default Port value
+const path = require('path');
 //console.log(process.env);
 const smtpPort = 10443;
 
 //console.log(process.env);
 //this makes sure you always get to the home page on refresh
 app.get('/', function (req, res, next) {
-  res.redirect('/index.htm');
+  res.redirect('/index.htm');  
   next();
 });
 
@@ -32,15 +33,14 @@ app.get('/index', function (req, res, next) {
 
 //this makes sure you always get to the home page on refresh
 app.get('/admin', function (req, res, next) {
-  //console.log(res.render('admin/index.htm'));
-//   res.redirect('/admin/index.htm');
-//   next();
+  res.redirect('/admin/index.htm');
+  next();
 });
 
 app.use('/', express.static(__dirname + '/public'));
-app.use('/admin', express.static(__dirname + '/public/admin'));
+app.use('/admin', express.static(path.join(__dirname, '/public/admin')));
 
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 mongoose.connect(config.getDbConnectionString());
 setupController(app);
